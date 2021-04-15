@@ -41,6 +41,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
+                tags={post.tags}
                 date={post.date}
                 author={post.author}
               />
@@ -65,6 +66,7 @@ export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, [
     'title',
     'date',
+    'tags',
     'slug',
     'author',
     'content',

@@ -3,10 +3,12 @@ import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import Link from 'next/link'
 import Author from '../types/author'
+import Tags from './tags'
 
 type Props = {
   title: string
   coverImage: string
+  tags: [string]
   date: string
   excerpt: string
   author: Author
@@ -16,6 +18,7 @@ type Props = {
 const PostPreview = ({
   title,
   coverImage,
+  tags,
   date,
   excerpt,
   author,
@@ -31,6 +34,7 @@ const PostPreview = ({
           <a className="hover:underline">{title}</a>
         </Link>
       </h3>
+      <Tags tags={tags} className="mb-4"/>
       <div className="text-lg mb-4">
         <DateFormatter dateString={date} />
       </div>

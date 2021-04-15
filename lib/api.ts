@@ -15,7 +15,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const { data, content } = matter(fileContents)
 
   type Items = {
-    [key: string]: string
+    [key: string]: any
   }
 
   const items: Items = {}
@@ -27,6 +27,10 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
     if (field === 'content') {
       items[field] = content
+    }
+    if (field === 'tags') {
+      items[field] = data[field].split(',');
+      return;
     }
 
     if (data[field]) {
