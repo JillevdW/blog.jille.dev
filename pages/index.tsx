@@ -9,10 +9,11 @@ import { CMS_NAME } from '../lib/constants'
 import Post from '../types/post'
 
 type Props = {
-  allPosts: Post[]
+  allPosts: Post[],
+  titleAccentColor: string
 }
 
-const Index = ({ allPosts }: Props) => {
+const Index = ({ allPosts, titleAccentColor }: Props) => {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
@@ -22,7 +23,7 @@ const Index = ({ allPosts }: Props) => {
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
-          <Intro />
+          <Intro className={titleAccentColor}/>
           {heroPost && (
             <HeroPost
               title={heroPost.title}
@@ -43,6 +44,12 @@ const Index = ({ allPosts }: Props) => {
 
 export default Index
 
+function getRandomInt(min: number, max: number): number {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
 export const getStaticProps = async () => {
   const allPosts = getAllPosts([
     'title',
@@ -53,8 +60,14 @@ export const getStaticProps = async () => {
     'coverImage',
     'excerpt',
   ])
+  
+  const classNames = ['text-blue-600', 'text-yellow-400', 'text-purple-600', 'text-green-400'];
+  const titleAccentColor = classNames[getRandomInt(0, classNames.length)];
 
   return {
-    props: { allPosts },
+    props: { 
+      allPosts,
+      titleAccentColor
+    },
   }
 }
