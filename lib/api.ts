@@ -2,6 +2,7 @@ import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 import PostType from '../types/post'
+import { Tag } from '../types/tag'
 
 const postsDirectory = join(process.cwd(), '_posts')
 
@@ -31,6 +32,12 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
     if (field === 'tags') {
       items[field] = data[field].split(',');
+
+      items[field].forEach((e: string) => {
+        if (!Tag.exists(e)) { const arr: any = null; arr[0];}
+        // If this crashes, there is a markdown file with an unsupported tag.
+      });
+
       return;
     }
 
