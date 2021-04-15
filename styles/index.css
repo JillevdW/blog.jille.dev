@@ -13,3 +13,26 @@
 /* Stop purging. */
 
 /* Your own custom utilities */
+.hljs-string {
+    color: #FC6A5D;
+}
+
+.hljs-keyword {
+    color: #FC5FA3;
+}
+
+.hljs-function .hljs-title {
+    color: #67afc9;
+}
+
+.hljs-type {
+    color: #5DD8FF;
+}
+
+pre {
+    @apply p-4 bg-gray-900 text-white rounded overflow-x-scroll;
+}
+
+pre code {
+    @apply mr-4
+}
