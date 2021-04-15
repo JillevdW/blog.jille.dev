@@ -11,6 +11,7 @@ import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import PostType from '../../types/post'
 import RelatedPosts from '../../components/related-posts'
+import * as TagType from "../../types/tag"
 
 type Props = {
   posts: PostType[],
@@ -38,7 +39,7 @@ const Tag = ({ posts, tag }: Props) => {
               </Head>
               <section className="flex items-center justify-start mt-8 mb-12">
                 <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight">
-                  More about <span className='text-red-400'>{tag}</span>.
+                  More about <span className={`text-${TagType.Tag.color(tag)}`}>{tag}</span>.
                 </h1>
               </section>
             </article>
