@@ -1,6 +1,7 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
+import PostType from '../types/post'
 
 const postsDirectory = join(process.cwd(), '_posts')
 
@@ -48,4 +49,11 @@ export function getAllPosts(fields: string[] = []) {
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts
+}
+
+export function getRelatedPosts(slug: string, tags: [string], fields: string[] = []) {
+  return getAllPosts(fields)
+    .filter((e) => { 
+      return tags.some(tag => e.tags.includes(tag)) && slug !== e.slug 
+    });
 }

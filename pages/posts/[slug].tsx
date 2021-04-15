@@ -5,12 +5,13 @@ import PostBody from '../../components/post-body'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
+import { getPostBySlug, getAllPosts, getRelatedPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
+import RelatedPosts from '../../components/related-posts'
 
 type Props = {
   post: PostType
@@ -47,6 +48,12 @@ const Post = ({ post, morePosts, preview }: Props) => {
               />
               <PostBody content={post.content} />
             </article>
+
+            {
+              morePosts.length > 0
+                ? <RelatedPosts posts={morePosts}/>
+                : ''
+            }
           </>
         )}
       </Container>
@@ -75,12 +82,21 @@ export async function getStaticProps({ params }: Params) {
   ])
   const content = await markdownToHtml(post.content || '')
 
+  const morePosts = getRelatedPosts(post.slug, post.tags, [
+    'title',
+    'date',
+    'tags',
+    'slug',
+    'coverImage'
+  ]);
+
   return {
     props: {
       post: {
         ...post,
         content,
       },
+      morePosts
     },
   }
 }
