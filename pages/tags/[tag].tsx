@@ -84,15 +84,8 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const allTags = [
-    'swift',
-    'combine',
-    'information',
-    'meta'
-  ];
-
   return {
-    paths: allTags.map((tag) => {
+    paths: TagType.Tag.allTags().map((tag) => {
       return {
         params: {
           tag,

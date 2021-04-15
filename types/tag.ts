@@ -23,4 +23,8 @@ export class Tag {
     static color(tag: string): string {
         return Tag.tags[tag].color;
     }
+
+    static allTags(): string[] {
+        return Object.keys(Tag.tags);
+    }
 }
