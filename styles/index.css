@@ -29,6 +29,18 @@
     color: #5DD8FF;
 }
 
+.hljs-comment {
+    color: #6C7986;
+}
+
+.hljs-variable {
+    color: #91D462;
+}
+
+.hljs-number {
+    color: #9686F5;
+}
+
 pre {
     @apply p-4 bg-gray-900 text-white rounded overflow-x-scroll;
 }
