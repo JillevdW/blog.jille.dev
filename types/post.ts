@@ -6,6 +6,7 @@ type PostType = {
   tags: [string]
   date: string
   coverImage: string
+  darkCoverImage: string
   author: Author
   excerpt: string
   ogImage: {

@@ -29,6 +29,7 @@ const Index = ({ allPosts, titleAccentColor }: Props) => {
             <HeroPost
               title={heroPost.title}
               coverImage={heroPost.coverImage}
+              darkCoverImage={heroPost.darkCoverImage}
               tags={heroPost.tags}
               date={heroPost.date}
               author={heroPost.author}
@@ -53,6 +54,7 @@ export const getStaticProps = async () => {
     'slug',
     'author',
     'coverImage',
+    'darkCoverImage',
     'excerpt',
   ])
 

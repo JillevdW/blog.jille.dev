@@ -44,6 +44,7 @@ const Post = ({ post, morePosts, preview, headerColor }: Props) => {
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
+                darkCoverImage={post.darkCoverImage}
                 tags={post.tags}
                 date={post.date}
                 author={post.author}
@@ -81,6 +82,7 @@ export async function getStaticProps({ params }: Params) {
     'content',
     'ogImage',
     'coverImage',
+    'darkCoverImage'
   ])
   const content = await markdownToHtml(post.content || '')
 
@@ -89,7 +91,8 @@ export async function getStaticProps({ params }: Params) {
     'date',
     'tags',
     'slug',
-    'coverImage'
+    'coverImage',
+    'darkCoverImage'
   ]);
 
   return {

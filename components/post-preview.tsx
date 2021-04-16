@@ -8,6 +8,7 @@ import Tags from './tags'
 type Props = {
   title: string
   coverImage: string
+  darkCoverImage: string
   tags: [string]
   date: string
   excerpt?: string
@@ -18,6 +19,7 @@ type Props = {
 const PostPreview = ({
   title,
   coverImage,
+  darkCoverImage,
   tags,
   date,
   excerpt,
@@ -27,7 +29,7 @@ const PostPreview = ({
   return (
     <div>
       <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
+        <CoverImage slug={slug} title={title} src={coverImage} darkSrc={darkCoverImage}/>
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">

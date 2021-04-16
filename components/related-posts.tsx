@@ -23,6 +23,7 @@ const RelatedPosts = ({ posts, showsTitle = true }: Props) => {
             title={post.title}
             tags={post.tags}
             coverImage={post.coverImage}
+            darkCoverImage={post.darkCoverImage}
             date={post.date}
             author={post.author}
             slug={post.slug}

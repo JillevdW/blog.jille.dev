@@ -8,6 +8,7 @@ import Tags from './tags'
 type Props = {
   title: string
   coverImage: string
+  darkCoverImage: string
   tags: [string]
   date: string
   excerpt: string
@@ -18,6 +19,7 @@ type Props = {
 const HeroPost = ({
   title,
   coverImage,
+  darkCoverImage,
   tags,
   date,
   excerpt,
@@ -27,7 +29,7 @@ const HeroPost = ({
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage title={title} src={coverImage} slug={slug} />
+        <CoverImage title={title} src={coverImage} darkSrc={darkCoverImage} slug={slug} />
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>

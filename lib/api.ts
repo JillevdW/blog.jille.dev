@@ -46,6 +46,12 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
   })
 
+  if (items['coverImage']) {
+    if (!items['darkCoverImage']) {
+      items['darkCoverImage'] = items['coverImage'];
+    }
+  }
+
   return items
 }
 

@@ -4,18 +4,20 @@ import Link from 'next/link'
 type Props = {
   title: string
   src: string
+  darkSrc: string
   slug?: string
 }
 
-const CoverImage = ({ title, src, slug }: Props) => {
+const CoverImage = ({ title, src, darkSrc, slug }: Props) => {
   const image = (
-    <img
-      src={src}
-      alt={`Cover Image for ${title}`}
-      className={cn('shadow-small', {
-        'hover:shadow-medium transition-shadow duration-200': slug,
-      })}
-    />
+    <div className={cn('shadow-small', {
+      'hover:shadow-medium transition-shadow duration-200': slug,
+    })}>
+      <picture>
+        <source srcSet={darkSrc} media={"(prefers-color-scheme: dark)"}></source>
+        <img src={src} alt={`Cover Image for ${title}`}/>
+      </picture>
+    </div>
   )
   return (
     <div className="sm:mx-0">
