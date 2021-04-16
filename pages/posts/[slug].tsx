@@ -12,14 +12,16 @@ import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
 import RelatedPosts from '../../components/related-posts'
+import { getRandomColorClassName } from '../../lib/randomColor'
 
 type Props = {
   post: PostType
   morePosts: PostType[]
-  preview?: boolean
+  preview?: boolean,
+  headerColor: string
 }
 
-const Post = ({ post, morePosts, preview }: Props) => {
+const Post = ({ post, morePosts, preview, headerColor }: Props) => {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -27,7 +29,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
+        <Header headerColor={headerColor}/>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -96,7 +98,8 @@ export async function getStaticProps({ params }: Params) {
         ...post,
         content,
       },
-      morePosts
+      morePosts,
+      headerColor: getRandomColorClassName()
     },
   }
 }

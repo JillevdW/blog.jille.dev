@@ -12,13 +12,15 @@ import { CMS_NAME } from '../../lib/constants'
 import PostType from '../../types/post'
 import RelatedPosts from '../../components/related-posts'
 import * as TagType from "../../types/tag"
+import { getRandomColorClassName } from '../../lib/randomColor'
 
 type Props = {
   posts: PostType[],
-  tag: string
+  tag: string,
+  headerColor: string
 }
 
-const Tag = ({ posts, tag }: Props) => {
+const Tag = ({ posts, tag, headerColor}: Props) => {
   const router = useRouter()
   if (!router.isFallback && !tag) {
     return <ErrorPage statusCode={404} />
@@ -26,7 +28,7 @@ const Tag = ({ posts, tag }: Props) => {
   return (
     <Layout>
       <Container>
-        <Header />
+        <Header headerColor={headerColor}/>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -78,7 +80,8 @@ export async function getStaticProps({ params }: Params) {
   return {
     props: {
       posts,
-      tag: params.tag
+      tag: params.tag,
+      headerColor: getRandomColorClassName()
     },
   }
 }

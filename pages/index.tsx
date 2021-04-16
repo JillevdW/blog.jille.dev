@@ -7,6 +7,7 @@ import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 import Post from '../types/post'
+import { getRandomColorClassName } from '../lib/randomColor'
 
 type Props = {
   allPosts: Post[],
@@ -44,12 +45,6 @@ const Index = ({ allPosts, titleAccentColor }: Props) => {
 
 export default Index
 
-function getRandomInt(min: number, max: number): number {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-}
-
 export const getStaticProps = async () => {
   const allPosts = getAllPosts([
     'title',
@@ -60,14 +55,11 @@ export const getStaticProps = async () => {
     'coverImage',
     'excerpt',
   ])
-  
-  const classNames = ['text-blue-600', 'text-yellow-400', 'text-purple-600', 'text-green-400'];
-  const titleAccentColor = classNames[getRandomInt(0, classNames.length)];
 
   return {
     props: { 
       allPosts,
-      titleAccentColor
+      titleAccentColor: getRandomColorClassName()
     },
   }
 }
