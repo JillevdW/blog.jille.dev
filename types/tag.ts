@@ -2,17 +2,21 @@ export class Tag {
 
     private static tags: {
         [key: string]: {
-            color: string
+            bgColor: string,
+            textColor: string
         }
     } = {
         swift: {
-            color: 'yellow-400',
+            bgColor: 'bg-yellow-400',
+            textColor: 'text-yellow-400',
         },
         combine: {
-            color: 'purple-400',
+            bgColor: 'bg-purple-400',
+            textColor: 'text-purple-400',
         },
         laravel: {
-            color: 'red-400'
+            bgColor: 'bg-red-400',
+            textColor: 'text-red-400',
         }
     }
 
@@ -20,8 +24,12 @@ export class Tag {
         return Tag.tags[tag] != null;
     }
 
-    static color(tag: string): string {
-        return Tag.tags[tag].color;
+    static bgColor(tag: string): string {
+        return Tag.tags[tag].bgColor;
+    }
+
+    static textColor(tag: string): string {
+        return Tag.tags[tag].textColor;
     }
 
     static allTags(): string[] {

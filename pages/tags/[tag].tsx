@@ -41,7 +41,7 @@ const Tag = ({ posts, tag, headerColor}: Props) => {
               </Head>
               <section className="flex items-center justify-start mt-8 mb-12">
                 <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight">
-                  More about <span className={`text-${TagType.Tag.color(tag)}`}>{tag}</span>.
+                  More about <span className={TagType.Tag.textColor(tag)}>{tag}</span>.
                 </h1>
               </section>
             </article>
