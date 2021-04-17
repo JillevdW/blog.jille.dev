@@ -40,6 +40,7 @@ const Post = ({ post, morePosts, preview, headerColor }: Props) => {
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
                 <meta property="og:image" content={post.ogImage.url} />
+                <meta name='date' content={post.date}></meta>
               </Head>
               <PostHeader
                 title={post.title}
