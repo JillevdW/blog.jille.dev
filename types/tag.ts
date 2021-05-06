@@ -17,6 +17,10 @@ export class Tag {
         laravel: {
             bgColor: 'bg-red-400',
             textColor: 'text-red-400',
+        },
+        meta: {
+            bgColor: 'bg-green-400',
+            textColor: 'text-green-400'
         }
     }
 
