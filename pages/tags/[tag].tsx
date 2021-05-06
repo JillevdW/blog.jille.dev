@@ -36,7 +36,7 @@ const Tag = ({ posts, tag, headerColor}: Props) => {
             <article>
               <Head>
                 <title>
-                  {tag} | Next.js Blog Example with {CMS_NAME}
+                  {tag} | A Swift Blog
                 </title>
               </Head>
               <section className="flex items-center justify-start mt-8 mb-12">

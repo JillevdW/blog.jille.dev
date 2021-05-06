@@ -37,7 +37,7 @@ const Post = ({ post, morePosts, preview, headerColor }: Props) => {
             <article className="mb-32">
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title} | A Swift Blog
                 </title>
                 <meta property="og:image" content={post.ogImage.url} />
                 <meta name='date' content={post.date}></meta>

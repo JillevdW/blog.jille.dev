@@ -11,14 +11,7 @@ const Intro = ({ className }: Props) => {
         A Swift <span className={className}>Blog</span>.
       </h1>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{' '}
-        <a
-          href="https://nextjs.org/"
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          Next.js
-        </a>{' '}
-        and {CMS_NAME}.
+        Articles about Swift, Laravel and other awesome technologies.
       </h4>
     </section>
   )

@@ -21,7 +21,7 @@ const Index = ({ allPosts, titleAccentColor }: Props) => {
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>A Swift Blog - by Jille van der Weerd</title>
         </Head>
         <Container>
           <Intro className={titleAccentColor}/>
