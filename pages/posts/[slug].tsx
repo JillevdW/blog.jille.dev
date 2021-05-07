@@ -41,6 +41,9 @@ const Post = ({ post, morePosts, preview, headerColor }: Props) => {
                 </title>
                 <meta property="og:image" content={post.ogImage.url} />
                 <meta name='date' content={post.date}></meta>
+                <meta name="twitter:card" content="summary" />
+                <meta property="og:title" content={post.title} />
+                <meta property="og:description" content={post.excerpt} />
               </Head>
               <PostHeader
                 title={post.title}
